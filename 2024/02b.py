@@ -1,5 +1,5 @@
 datafolder = "data"
-with open(f"{datafolder}/2.txt", "r") as file:
+with open(f"{datafolder}/02", "r") as file:
     data = file.read()
 
 
@@ -18,7 +18,6 @@ def check_order(original_report, idx, limit):
                 limit = False
                 level = next_level
                 break
-
     return limit
 
 

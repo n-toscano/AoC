@@ -1,5 +1,5 @@
 datafolder = "data"
-with open(f"{datafolder}/1.txt", "r") as file:
+with open(f"{datafolder}/01", "r") as file:
     data = file.read()
     lhs, rhs = [], []
     for line in data[:-1].split("\n"):
