@@ -23,13 +23,11 @@ def check_update(update, couples):
 def fix_update(update, couples):
     for i in range(len(update[:-1])):
         if not check_next_pages(update[i], update[i + 1 :], couples):
-            new_update = update.copy()
-            new_update[i] = update[i + 1]
-            new_update[i + 1] = update[i]
-    if not check_update(new_update, couples):
-        return fix_update(new_update, couples)
+            update[i], update[i + 1] = update[i + 1], update[i]
+    if not check_update(update, couples):
+        return fix_update(update, couples)
     else:
-        return new_update
+        return update
 
 
 couples_list, updates_list = data.split("\n\n")
