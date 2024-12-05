@@ -6,7 +6,7 @@ with open(f"{datafolder}/05", "r") as file:
 def check_next_pages(page, next_pages, couples):
     target_pages = [c[1] for c in couples if c[0] == page]
     forbidden_pages = [c[0] for c in couples if c[1] == page]
-    return all(page in target_pages for page in next_pages) and set(
+    return set(next_pages).issubset(set(target_pages)) and set(
         forbidden_pages
     ).isdisjoint(set(next_pages))
 
