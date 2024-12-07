@@ -62,7 +62,6 @@ def add_object(data, dot_indices, step):
     return new_string
 
 
-# Example usage
 dot_indices = [i for i, char in enumerate(data) if char == "."]
 obs_cnt = 0
 for step in range(len(dot_indices)):
