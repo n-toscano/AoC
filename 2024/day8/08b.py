@@ -27,7 +27,7 @@ def get_resonances(data, resonances=None):
                         elif dir == "bwd":
                             resonances.add(len(data) - 1 - (i + n * r))
                     n += 1
-    return {i for i in resonances if 0 <= i < len(data)}
+    return resonances
 
 
 fwd_resonances = get_resonances(data)
