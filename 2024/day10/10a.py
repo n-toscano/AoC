@@ -2,7 +2,7 @@ from collections import deque
 from itertools import product
 
 datafolder = "data"
-with open(f"{datafolder}/10s", "r") as file:
+with open(f"{datafolder}/10", "r") as file:
     data = file.read()[:-1].split("\n")
 
 
