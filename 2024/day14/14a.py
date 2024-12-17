@@ -1,6 +1,5 @@
 import re
 
-
 datafolder = "data"
 with open(f"{datafolder}/14", "r") as file:
     data = file.read()[:-1].split("\n")

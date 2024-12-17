@@ -1,6 +1,5 @@
 import re
 
-
 datafolder = "data"
 with open(f"{datafolder}/14", "r") as file:
     data = file.read()[:-1].split("\n")
@@ -17,7 +16,7 @@ def get_pos_vel(robot):
     return p_tuple, v_tuple
 
 
-def update_pos(pos, vel, i=0):
+def update_pos(pos, vel):
     new_pos_x = (pos[0] + vel[0]) % n_rows
     new_pos_y = (pos[1] + vel[1]) % n_cols
     return (new_pos_x, new_pos_y)
@@ -26,11 +25,18 @@ def update_pos(pos, vel, i=0):
 tree = False
 cnt = 0
 
+positions = n_cols * n_rows * [(0, 0)]
+
 while not tree:
     tiles_list = []
-    for robot in data:
-        p, v = get_pos_vel(robot)
+    for i, robot in enumerate(data):
+        if cnt == 0:
+            p, v = get_pos_vel(robot)
+        else:
+            p = positions[i]
+            _, v = get_pos_vel(robot)
         new_pos = update_pos(p, v)
+        positions[i] = new_pos
         tiles_list.append(new_pos)
 
     cnt += 1
