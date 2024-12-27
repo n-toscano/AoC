@@ -16,13 +16,13 @@ def check_price(n):
     p = int(str(n)[-1])
     SEQ_INT = set()
     s = []
-    for _ in range(2000):
+    for i in range(2000):
         nn = next(n)
         np = int(str(nn)[-1])
         s.append(np - p)
         n = nn
         p = np
-        if len(s) == 5:
+        if i > 3:
             s = s[1:]
             st = tuple(s)
             if st in SEQ_INT:
@@ -38,5 +38,4 @@ for n in data:
     n = int(n)  # type: ignore
     check_price(n)
 
-max_seq = max(SEQ, key=SEQ.get)  # type: ignore
-print(SEQ[max_seq])
+print(max(SEQ.values()))
