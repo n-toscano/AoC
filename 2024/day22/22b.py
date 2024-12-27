@@ -14,7 +14,7 @@ def next(n):
 
 def check_price(n):
     p = int(str(n)[-1])
-    SEQ_INT = []
+    SEQ_INT = set()
     s = []
     for _ in range(2000):
         nn = next(n)
@@ -25,9 +25,9 @@ def check_price(n):
         if len(s) == 5:
             s = s[1:]
             st = tuple(s)
-            if st in set(SEQ_INT):
+            if st in SEQ_INT:
                 continue
-            SEQ_INT.append(st)
+            SEQ_INT.add(st)
             if st in SEQ:
                 SEQ[st] += np
                 continue
