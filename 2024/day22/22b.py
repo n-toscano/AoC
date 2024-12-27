@@ -13,7 +13,8 @@ def next(n):
 
 
 def check_price(n):
-    p = int(str(n)[-1])
+    p = int(n[-1])
+    n = int(n)
     SEQ_INT = set()
     s = []
     for i in range(2000):
@@ -35,7 +36,6 @@ def check_price(n):
 
 
 for n in data:
-    n = int(n)  # type: ignore
     check_price(n)
 
 print(max(SEQ.values()))
